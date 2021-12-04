@@ -32,12 +32,10 @@ rule3 = ctrl.Rule(atendimento['ruim'] & comida['ruim'], valorBrinde['compensacao
 valorBrinde_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
 valorBrinde_simulador = ctrl.ControlSystemSimulation(valorBrinde_ctrl)
 
-# Entrando com valores para qualidade da comida e do atendimento
-valorBrinde_simulador.input['comida'] = 1
-valorBrinde_simulador.input['atendimento'] = 8
+# Valores de entrada para qualidade da comida e do atendimento
+valorBrinde_simulador.input['comida'] = 2
+valorBrinde_simulador.input['atendimento'] = 2
 
-# Computando o resultado
+# Resultado
 valorBrinde_simulador.compute()
 print(valorBrinde_simulador.output['valorBrinde'])
-
-comida.view()
